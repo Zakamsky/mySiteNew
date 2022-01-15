@@ -26,6 +26,14 @@ module.exports = config => {
         return [...collection.getFilteredByGlob('./src/posts/*.md')].reverse();
     });
 
+    // Returns a list of people ordered by filename
+    config.addCollection('people', collection => {
+        return collection.getFilteredByGlob('./src/people/*.md').sort((a, b) => {
+            return Number(a.fileSlug) > Number(b.fileSlug) ? 1 : -1;
+        });
+    });
+
+
     // Add filters
     config.addFilter('dateFilter', dateFilter);
     config.addFilter('w3DateFilter', w3DateFilter);
