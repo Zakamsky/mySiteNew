@@ -1,4 +1,9 @@
+//11ty plugins
+const rssPlugin = require('@11ty/eleventy-plugin-rss');
+
+// utils
 const sortByDisplayOrder = require('./src/utils/sort-by-display-order.js');
+
 // Filters
 const dateFilter = require('./src/filters/date-filter.js');
 const w3DateFilter = require('./src/filters/w3-date-filter.js');
@@ -8,6 +13,9 @@ module.exports = config => {
     config.addLayoutAlias('home', 'layouts/home.html');
 
     config.addPassthroughCopy('./src/images/');
+
+    // Plugins
+    config.addPlugin(rssPlugin);
 
     // collections:
 
@@ -44,6 +52,7 @@ module.exports = config => {
         markdownTemplateEngine: 'njk',
         dataTemplateEngine: 'njk',
         htmlTemplateEngine: 'njk',
+        templateFormats: ['njk', 'md', '11ty.js'],
 
         dir: {
             input: 'src',
