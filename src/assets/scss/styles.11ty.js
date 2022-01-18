@@ -1,4 +1,4 @@
-const fs = require('fs')
+// const fs = require('fs')
 const path = require('path')
 const sass = require('sass')
 const CleanCSS = require('clean-css')
@@ -6,6 +6,7 @@ const cssesc = require('cssesc')
 
 //test:
 const autoprefixer = require('autoprefixer')
+// const csso = require('postcss-csso')
 const postcss = require('postcss')
 
 
@@ -20,7 +21,7 @@ module.exports = class {
     async data() {
         const entryPath = path.join(__dirname, `/${ENTRY_FILE_NAME}`)
         return {
-            permalink: `/assets/scss/main.css`,
+            permalink: `/assets/css/main.css`,
             eleventyExcludeFromCollections: true,
             entryPath
         }
@@ -48,7 +49,8 @@ module.exports = class {
     // add post-css with autoprefixer
     async postCss(css) {
         return new Promise((resolve, reject) => {
-            postcss([ autoprefixer ]).process(css).then(result => {
+            // postcss([ autoprefixer, csso ]).process(css).then(result => {
+            postcss([ autoprefixer ]).process(css, { from: undefined } ).then(result => {
                 result.warnings().forEach(warn => {
                     console.warn(warn.toString())
                 })

@@ -18,6 +18,9 @@
     {% set metaDesc = summary %}
 {% endif %}
 
+{% if not socialImage %}
+    {% set socialImage = site.url + '/images/meta/social-share.png' %}
+{% endif %}
 
 <title>{{ pageTitle }}</title>
 <link rel="canonical" href="{{ currentUrl }}" />
@@ -40,3 +43,5 @@
     <meta name="twitter:description" content="{{ metaDesc }}" />
     <meta property="og:description" content="{{ metaDesc }}" />
 {% endif %}
+
+<link rel="icon" href="/images/meta/favicon.svg" type="image/svg+xml" />

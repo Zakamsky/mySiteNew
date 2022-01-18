@@ -8,11 +8,22 @@ const sortByDisplayOrder = require('./src/utils/sort-by-display-order.js');
 const dateFilter = require('./src/filters/date-filter.js');
 const w3DateFilter = require('./src/filters/w3-date-filter.js');
 
+// Transforms
+const htmlMinTransform = require('./src/transforms/html-min-transform.js');
+
+// Create a helpful production flag
+const isProd = process.env.ELEVENTY_ENV === 'production'
+
 module.exports = config => {
 
     config.addLayoutAlias('home', 'layouts/home.html');
 
     config.addPassthroughCopy('./src/images/');
+
+    // Only minify HTML if we are in production because it slows builds _right_ down
+    if (isProd) {
+        config.addTransform('htmlmin', htmlMinTransform);
+    }
 
     // Plugins
     config.addPlugin(rssPlugin);
@@ -29,8 +40,8 @@ module.exports = config => {
         );
     });
 
+    // Returns a collection of blog posts in reverse date order
     config.addCollection('blog', collection => {
-        // Returns a collection of blog posts in reverse date order
         return [...collection.getFilteredByGlob('./src/posts/*.md')].reverse();
     });
 
@@ -46,13 +57,18 @@ module.exports = config => {
     config.addFilter('dateFilter', dateFilter);
     config.addFilter('w3DateFilter', w3DateFilter);
 
+    // additional watchers:
+    config.addWatchTarget('./src/assets')
+
+    // Tell 11ty to use the .eleventyignore and ignore our .gitignore file
+    config.setUseGitIgnore(false);
 
     return {
 
+        templateFormats: ['njk', 'md', '11ty.js'],
         markdownTemplateEngine: 'njk',
         dataTemplateEngine: 'njk',
         htmlTemplateEngine: 'njk',
-        templateFormats: ['njk', 'md', '11ty.js'],
 
         dir: {
             input: 'src',
