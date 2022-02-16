@@ -1,24 +1,20 @@
-<a class="[ skip-link ] [ button ]" href="#main-content">Skip to content</a>
-<header role="banner" class="site-head">
-    <div class="wrapper">
-        <div class="site-head__inner">
-            <a href="/" aria-label="{{ site.name }} - home" class="site-head__brand">
-                {% include "partials/brand.svg" %}
-            </a>
-            <nav class="[ nav ] [ site-head__nav ] [ font-sans ]" aria-label="Primary">
-                <ul class="nav__list">
-                    {% for item in navigation.items %}
-                    <li>
-                        <a
-                            href="{{ item.url }}"
-                            {{ helpers.getLinkActiveState(item.url, page.url) | safe }}
-                        >
-                            {{ item.text }}
-                        </a>
-                    </li>
-                    {% endfor %}
-                </ul>
-            </nav>
-        </div>
-    </div>
+{#<a class="[ skip-link ] [ button ]" href="#main-content">Skip to content</a>#}
+
+<header class="header">
+    <nav class="navigation-menu js-nav-menu">
+        <button class="navigation-menu__toggle js-nav-menu-toggle">
+            <span class="navigation-menu__bars"></span>
+            Меню
+        </button>
+        <ul class="menu-list list-unstyled">
+            <li class="menu-list__item"><a href="/">Главная</a></li>
+            <li class="menu-list__item"><a href="/portfolio">Портфолио</a></li>
+            <!--<li class="menu-list__item"><a href="/index2.html">slider</a></li>-->
+            <!--<li class="menu-list__item"><a href="/site.html">site anatomy</a></li>-->
+            <!--<li class="menu-list__item"><a href="/resume.html">Resume</a></li>-->
+            <!--<li class="menu-list__item"><a href="/services.html">services</a></li>-->
+            <li class="menu-list__item"><a href="/contacts">Контакты</a></li>
+        </ul>
+    </nav>
+
 </header>

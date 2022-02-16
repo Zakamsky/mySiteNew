@@ -1,0 +1,20 @@
+.neon {
+  animation: neonAnim 2.5s alternate-reverse infinite;
+  color: #00ae8c;
+  font-family: Bahnschrift;
+  font-size: 73px;
+}
+@keyframes neonAnim {
+  from {
+    text-shadow:
+            0 0 10px rgba(0,174,140,.5),
+            0 0 40px rgba(0,174,140,.5),
+            0 0 100px rgba(0,174,140,.5);
+  }
+  to {
+    text-shadow:
+            0 0 5px rgba(0,174,140,.5),
+            0 0 20px rgba(0,174,140,.5),
+            0 0 60px rgba(0,174,140,.5);
+  }
+}

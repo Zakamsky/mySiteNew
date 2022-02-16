@@ -65,7 +65,7 @@ module.exports = config => {
 
     return {
 
-        templateFormats: ['njk', 'md', '11ty.js'],
+        templateFormats: ['njk', 'md', 'html', '11ty.js'],
         markdownTemplateEngine: 'njk',
         dataTemplateEngine: 'njk',
         htmlTemplateEngine: 'njk',

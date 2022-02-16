@@ -1,0 +1,118 @@
+$hero-height: auto; //500px
+
+.grid-wrap__base.contacts,
+.grid-wrap__base.resume {
+  display: block;
+  overflow-y: auto;
+  @media screen and (min-width: 1024px) {
+  display: grid;
+  grid-template-rows: $hero-height 1fr;
+  overflow-y: hidden;
+}
+  .nav {
+    padding-top: 0;
+    overflow-y: hidden;
+    @media screen and (min-width: 768px) {
+      display: block;
+    }
+    &__menu {
+      @media screen and (min-width: 768px) {
+        display: flex;
+        justify-content: space-between;
+        width: 100%;
+        padding: 0 2rem;
+      }
+      @media screen and (min-width: 1024px) {
+        display: block;
+        padding: 0;
+      }
+  }
+    &_text {
+      font-size: 14px;
+      margin: 0;
+      padding: 1em 0;
+      @media screen and (min-width: 1024px) {
+      padding: 1em 2em;
+      font-size: 1rem;
+    }
+  }
+    &__item:not(:last-child)::after {
+      content: none;
+      width: 100%;
+      @media screen and (min-width: 1024px) {
+      content: '';
+    }
+  }
+}
+}
+.hero {
+  grid-column: 1 / -1;
+  grid-row: 1 / 2;
+  padding: 1em;
+  text-align: center;
+  @media screen and (min-width: 768px) {
+  padding: 2em;
+}
+  @media screen and (min-width: 1024px) {
+  grid-column: 1 / 2;
+  text-align: left;
+}
+
+  &__link {
+    display: inline-block;
+    width: 250px;
+    height: 250px;
+    border-radius: 50%;
+    overflow: hidden;
+    @media screen and (min-width: 1024px) {
+    max-height: calc( 20vw - 4em);
+    max-width: calc( 20vw - 4em);
+  }
+}
+  &__photo {
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+    object-position: center;
+}
+  &__subtitle {
+    color: $color-primary-1;
+}
+}
+.resume__body,
+.contacts__body {
+  padding: 0 1em;
+  grid-row: 2 / -1;
+  @media screen and (min-width: 768px) {
+  padding: 0 2em;
+}
+  @media screen and (min-width: 1024px) {
+  grid-row: 1 / -1;
+}
+}
+.resume-block {
+  padding-top: 3rem;
+  padding-bottom: 2rem;
+  //height: 100vh //отладка
+
+  &__title {
+    margin-bottom: 2em;
+    font-size: 1.4em;
+}
+  &__subtitle {
+    margin-top: 2rem;
+    font-weight: 400;
+}
+  &__accent-text {
+    color: $color-primary-1;
+    line-height: 1.7;
+    font-weight: 700;
+}
+  &__text {
+    line-height: 1.7;
+    font-weight: 200;
+}
+  &:last-child {
+    margin-bottom: 3em;
+}
+}

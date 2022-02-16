@@ -8,7 +8,7 @@ const rollupConfigFile = resolve(__dirname, '../../../rollup.config.js');
 
 const ENTRY_POINTS = {
     main: 'main.js',
-    test: 'test.js',
+    // test: 'test.js',
 }
 
 module.exports = class {

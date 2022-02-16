@@ -1,0 +1,363 @@
+
+@use "sass:math";
+
+.grid-wrap__base {
+  display: grid;
+  grid-template-rows: 1fr;
+  grid-template-columns: $nav-width 1fr;
+  height: 100vh;
+}
+// ============== MAIN ================//
+
+.main {
+  grid-column: 1 / -1;
+  //grid-row: 1 / 2
+  padding: math.div($default-spacing, 4);
+  overflow-x: hidden;
+  overflow-y: auto;
+  perspective: 1px;
+  @supports (scroll-snap-type: block proximity) {
+  scroll-snap-type: block proximity;
+  /* текущая спецификация / Safari */
+};
+;
+//noinspection CssInvalidFunction
+@supports (scroll-snap-destination: 0% 100%) {
+scroll-snap-destination: 0% 100%;
+scroll-snap-points-Y: repeat(100%);
+};
+//  /* старая спецификация / Firefox */;
+@supports (-webkit-overflow-scrolling: touch) {
+-webkit-overflow-scrolling: touch;
+}
+@supports (-moz-overflow-scrolling: touch) {
+-moz-overflow-scrolling: touch;
+}
+
+
+@media screen and (min-width: 1024px) {
+grid-column: 2 / -1;
+padding: $default-spacing;
+}
+}
+
+// ============== NAVIGATION ================//
+
+.nav {
+  display: none;
+  padding-top: 2.5rem;
+  overflow-y: auto;
+  @supports (-webkit-overflow-scrolling: touch) {
+  -webkit-overflow-scrolling: touch;
+}
+
+  &__item:not(:last-child)::after {
+    content: '';
+    display: block;
+    width: 110%;
+    height: 2px;
+    background: linear-gradient(to right, $color-primary-3-shadow 30%, rgba($color-primary-3, 0.06), transparent);
+}
+  &__link {
+    display: block;
+    color: #FFFFFF;
+    font-weight: 200;
+
+    &:hover,
+    &:focus {
+      outline: none !important;
+      background: linear-gradient(to right, $color-primary-3-shadow 50%, rgba($color-primary-3, 0.06), transparent);
+  }
+}
+  @media screen and (min-width: 1024px) {
+  display: block;
+  grid-column: 1 / 2;
+}
+}
+.nav.nav--rotate {
+  perspective: 500px;
+  -moz-perspective: 500px;
+  perspective-origin: left;
+  transform-style: preserve-3d;
+
+  .nav__menu {
+    perspective-origin: left;
+    transform-style: preserve-3d;
+    transform-origin: left;
+    transform: rotateY($nav-rotate-degree);
+}
+  .nav__item {
+    transform-style: preserve-3d;
+}
+  .nav__link {
+    transform-origin: left;
+    transition: all 0.25s ease;
+    -moz-perspective: 600px;
+    -moz-perspective-origin: left;
+
+    &:hover,
+    &:focus {
+      transform: rotateY( - $nav-rotate-degree);
+  }
+}
+}
+.media {
+  display: flex;
+  align-items: center;
+  padding: math.div($default-spacing, 2) $default-spacing;
+
+  &__img {
+    width: 60px;
+    height: 60px;
+    margin-right: math.div($default-spacing, 2);
+    border-radius: 50%;
+    object-position: center center;
+    object-fit: cover;
+}
+  &__content {
+    margin: 0;
+    &--title {
+      font-weight: 700;
+      color: $color-primary-0;
+  }
+}
+}
+
+
+// ============= PAGE SECTIONS ==============
+
+.section {
+  min-height: 100vh;
+  padding-top: math.div($section-height, 2) + 50px;
+  margin-bottom: $section-height;
+  position: relative;
+  transform-style: preserve-3d;
+
+  &__header {
+    position: absolute;
+    top: 50px;
+    left: 0;
+    right: 0;
+    height: $section-height;
+    padding: $default-spacing;
+    border-radius: $border-radius;
+    background-size: contain, cover;
+    background-repeat: no-repeat;
+    background-position: center center;
+    text-shadow: 0 0 20px rgba(0, 0, 0, 0.25);
+    /*from media */
+    transform: translateZ(-1px) scale(1.9);
+
+    &::after {
+      content: '';
+      display: block;
+      position: absolute;
+      top: 50%;
+      left: 0;
+      right: 0;
+      bottom: -1px;
+      background: linear-gradient(to bottom, rgba(0,0,0,0) 0%, rgba(0,0,0,0.5) 100%);
+    }
+  }
+
+  &__title {
+    font-size: 3.5rem;
+    font-weight: 200;
+    margin-top: 0.5rem;
+    margin-bottom: 0.5rem;
+    line-height: 1;
+    text-shadow: 2px 2px 0.5em rgba($color-primary-4, 0.8), 1px 1px 0.2em rgba(#000, 0.8), 2px 2px 0.6em rgba(#000, 0.8);
+
+    a {
+      display: inline-block;
+      color: $color-primary-0;
+      transform: scale(1);
+      transition: all 0.35s ease-in-out;
+      &:hover,
+      &:focus {
+        transform: scale(1.04);
+        text-shadow: 2px 2px 0.5em rgba($color-primary-4, 0.4),4px 4px 0.8em rgba($color-primary-4, 0.6), 4px 4px 0.2em rgba(#000, 0.8);
+      }
+    }
+  }
+
+  &__subtitle {
+    font-size: 1.5rem;
+    text-shadow: 2px 2px 0.5rem rgba($color-primary-4, 0.8), 2px 2px 0.4em rgba(#000, 0.8), 2px 2px 0.6em rgba(#000, 0.8);
+  }
+
+  &__content {
+    position: relative;
+    z-index: 1;
+    padding: 0;
+    transform: translateZ(0);
+  }
+
+  @media screen and (min-width: 350px) {
+    margin-bottom: $section-height *1.5;
+
+    &__content {
+      padding: 0 math.div($default-spacing, 2);
+    }
+  }
+}
+// ============= CONTENT BOX GRID ==============
+
+.boxgrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  grid-auto-rows: minmax(150px, auto);
+  grid-gap: 1rem 0.5rem;
+
+  &__item {
+    display: flex;
+    min-width: 150px;
+    //&.order_first
+    //  order: -1
+    //&.order_second
+    //  order: 1
+    //&.order_third
+    //  order: 2
+    //&.order_last
+    //  order: 3
+
+    &--wide {
+      grid-column: span 2;
+    }
+    &--high {
+      grid-row: span 2;
+    }
+    &--push {
+      @media screen and (min-width: 1024px) {
+        grid-column: span 2;
+        padding-left: 50%;
+      }
+    }
+  }
+}
+
+// ============= CONTENT BOX ==============
+
+.box {
+  display: flex;
+  flex: 1 0 0;
+  position: relative;
+  padding: $default-spacing;
+  border-radius: $border-radius;
+  font-size: 0.875rem;
+  color: #FFF;
+  Box-shadow: 0 19px 38px rgba(#000, 0.3), 0 15px 12px rgba(#000, 0.22);
+  transform: scale(1);
+  transition: all 0.25s ease;
+
+  &:hover,
+  &:focus {
+    transform: scale(1.07);
+    z-index: 10;
+  }
+  &--weather {
+    background-color: $teal;
+  }
+  &--cost,
+  &--text {
+    align-items: center;
+  }
+  &--cost {
+    background-color: rgba($color-primary-0, 0.6);
+  }
+  &--text {
+    background-color: rgba($color-primary-dark, 0.86);
+  }
+  &--description {
+    background-color: rgba($color-gray-1, 0.86);
+    p + p {
+      margin: 1rem 0 0;
+    }
+  }
+  &--image,
+  &--video {
+    padding: 0;
+    background-color: rgba($color-primary-1, 0.6);
+  }
+  &--video {    // fake a video play button
+    &::before,
+    &::after {
+      content: '';
+      display: block;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      z-index: 10;
+      transform: translate(-50%, -50%);
+    }
+    &::before {
+      width: 50px;
+      height: 50px;
+      background-color: #FFF;
+      border-radius: 50%;
+      box-shadow: 0 0 38px rgba(0,0,0,0.30);
+    }
+    &::after {
+      width: 0;
+      height: 0;
+      border-style: solid;
+      border-width: 10px 0 10px 15px;
+      border-color: transparent transparent transparent $gray-dark;
+      margin-left: 2px;
+    }
+  }
+  &__img {
+    display: block;
+    padding: 5px;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    object-fit: contain;
+    object-position: center;
+    border-radius: $border-radius;
+    filter: drop-shadow(0 17px 16px rgba(#000, 0.8));
+    &.picture {
+      padding: 0;
+      object-fit: cover;
+      object-position: top;
+    }
+  }
+}
+
+
+// ============= TOP/BOTTOM SCROLL CONTROLS ==============
+
+.scrollctrl {
+  display: none;
+  justify-content: center;
+  width: 50vw;
+  height: 50vw;
+  padding: 0;
+  position: fixed;
+  border-radius: 50%;
+  border: 1px solid $color-primary-3-shadow;
+  color: rgba(#FFF, 0.7);
+  background-color: transparent;
+  left: 50%;
+  margin-left: -25%;
+
+  &:hover,
+  &:focus {
+    background-color: $color-primary-4-shadow;
+    outline: none;
+  }
+  &--prev {
+    top: 0;
+    padding-top: 47%;
+    align-items: flex-end;
+    transform: translateY(-46vw);
+  }
+  &--next {
+    bottom: 0;
+    padding-bottom: 47%;
+    transform: translateY(46vw);
+  }
+  @media screen and (min-width: 1024px) {
+    display: flex;
+  }
+}
