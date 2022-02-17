@@ -125,6 +125,7 @@ module.exports = class {
             const css = await this.compile({ file: entryPath })
             const postCss = await this.postCss(css)
             const result = await this.minify(postCss)
+            console.log(isProd);
             return result
         } catch (err) {
             // if things go wrong

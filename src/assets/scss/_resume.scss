@@ -5,10 +5,10 @@ $hero-height: auto; //500px
   display: block;
   overflow-y: auto;
   @media screen and (min-width: 1024px) {
-  display: grid;
-  grid-template-rows: $hero-height 1fr;
-  overflow-y: hidden;
-}
+    display: grid;
+    grid-template-rows: $hero-height 1fr;
+    overflow-y: hidden;
+  }
   .nav {
     padding-top: 0;
     overflow-y: hidden;
@@ -26,7 +26,10 @@ $hero-height: auto; //500px
         display: block;
         padding: 0;
       }
-  }
+    }
+    &__link {
+      text-decoration: none;
+    }
     &_text {
       font-size: 14px;
       margin: 0;
