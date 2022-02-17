@@ -6,4 +6,6 @@ verticalArrow: true
 ---
 
 
-
+## ВНИМАНИЕ!
+> информация ниже вероятнее всего не актуальна
+> более актуальное резюме по адерсу [resume.elkin.dev](https://resume.elkin.dev/ru-ru/)
