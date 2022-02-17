@@ -16,3 +16,4 @@
 - add automatic indication of reading part on the table of content with intersection observer https://css-tricks.com/parsing-markdown-into-an-automated-table-of-contents/
 - refactoring
 - add i18n
+- add admin with cms... netlify.cms probably
