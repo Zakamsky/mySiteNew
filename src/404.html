@@ -1,0 +1,25 @@
+---
+title: 'Страница не найдена'
+metaDesc: 'personal web site for Alex Elkin frontend web developer'
+permalink: 404.html
+---
+
+
+{% extends "layouts/base.html" %}
+
+{% block gridMod %}contacts{% endblock %}
+{% block content %}
+
+    {%  include "partials/hero.html" %}
+
+    <main class="contacts__body main">
+
+        <h3 class="resume-block__subtitle">404</h3>
+
+        <p>Страница которую вы ищете не найдена</p>
+        <p>возможно она была удалена, поменяла адрес, или никогда не существовала</p>
+        <a href="/">НА главную</a>
+
+    </main>
+
+{% endblock %}
