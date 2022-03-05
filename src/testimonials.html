@@ -1,0 +1,30 @@
+{% extends "layouts/base.html" %}
+
+{% block gridMod %}testimonials{% endblock %}
+{% block content %}
+
+    {%  include "partials/hero.html" %}
+
+    <main class="contacts__body main">
+
+        <h3 class="resume-block__subtitle">Отзывы</h3>
+
+        <p>На этой странице я решил собрать отзывы от моих клиентов, студентов и коллег</p>
+        <p>Буду рад если вы оставите свой отзыв о нашей с вами работе.</p>
+
+        <script src="https://utteranc.es/client.js"
+                repo="Zakamsky/my-site-utterances-comments"
+                issue-term="url"
+                label="💬"
+                theme="preferred-color-scheme"
+                crossorigin="anonymous"
+                async>
+        </script>
+
+    </main>
+
+{% endblock %}
+
+{% block scripts %}
+
+{% endblock %}
