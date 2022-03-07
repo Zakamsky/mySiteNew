@@ -4,13 +4,6 @@
   box-sizing: border-box;
 }
 
-//ul,
-//ol {
-//  list-style-type: none;
-//  padding: 0;
-//  margin: 0;
-//}
-
 a {
   //text-decoration: none;
   color: $light;
@@ -19,16 +12,29 @@ a {
     color: $gray-light;
 }
 }
-//p {
-//  margin: 0;
-//}
-//p + p {
-//  margin-top: 1em;
-//}
+
 html {
   line-height: 1.25;
   -webkit-text-size-adjust: 100%;
   font-size: 16px;
+}
+
+
+
+body {
+  min-height: 100vh;
+  height: 100%;
+  margin: 0;
+  overflow: hidden;
+  font-size: 1rem;
+  font-weight: 200;
+  color: $light;
+  background-color: $gray-dark;
+  font-family: "Montserrat", "Roboto", "Droid Sans", "Helvetica Neue", sans-serif;
+}
+::selection {
+  color: $light;
+  background: $color-primary-2;
 }
 
 button,
@@ -46,19 +52,8 @@ button{
   appearance: none;
 }
 
-body {
-  min-height: 100vh;
-  height: 100%;
-  margin: 0;
-  overflow: hidden;
-  font-size: 1rem;
-  color: $light;
-  background-color: $gray-dark;
-  font-family: "Montserrat", "Roboto", "Droid Sans", "Helvetica Neue", sans-serif;
-}
-::selection {
-  color: $light;
-  background: $color-primary-2;
+.main {
+  scroll-behavior: smooth;
 }
 
 .text--large {
@@ -121,3 +116,6 @@ a.accent-text {
 .utterances {
   margin-left: 0;
 }
+
+// markdown global styles
+

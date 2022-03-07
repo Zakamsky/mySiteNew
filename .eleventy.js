@@ -1,5 +1,10 @@
 //11ty plugins
 const rssPlugin = require('@11ty/eleventy-plugin-rss');
+const pluginTOC = require('eleventy-plugin-toc')
+const markdownIt = require('markdown-it')
+const markdownItAnchor = require('markdown-it-anchor')
+
+
 
 // utils
 const sortByDisplayOrder = require('./src/utils/sort-by-display-order.js');
@@ -16,9 +21,16 @@ const isProd = process.env.ELEVENTY_ENV === 'production'
 
 module.exports = config => {
 
+    // Markdown
+    config.setLibrary(
+        'md',
+        markdownIt().use(markdownItAnchor)
+    )
+
     config.addLayoutAlias('home', 'layouts/home.html');
 
     config.addPassthroughCopy('./src/images/');
+
 
     // Only minify HTML if we are in production because it slows builds _right_ down
     if (isProd) {
@@ -27,6 +39,13 @@ module.exports = config => {
 
     // Plugins
     config.addPlugin(rssPlugin);
+    config.addPlugin(pluginTOC, {
+        tags: ['h2', 'h3'],
+        ul: true,
+        wrapperClass: 'page-nav',
+        wrapperLabel: 'Оглавление страницы'
+
+    })
 
     // collections:
 

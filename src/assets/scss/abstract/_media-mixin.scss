@@ -1,0 +1,24 @@
+$breakpoints: (
+        'sm': 576,
+        'md': 768,
+        'lg': 1024,
+        'xl': 1280
+);
+
+@mixin media( $point, $direction: 'min' ) {
+
+  $breakpoint: $point;
+
+  @if map-has-key($breakpoints, $point) {
+    $breakpoint: map-get($breakpoints, $point);
+  }
+
+  @if ($direction == 'max' ) {
+    $breakpoint: $breakpoint - 0.5;
+  }
+
+  @media only screen and ( #{$direction}-width: $breakpoint + 'px' ) {
+    @content;
+  }
+
+}

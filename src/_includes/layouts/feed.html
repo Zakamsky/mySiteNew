@@ -10,17 +10,25 @@
   {% set pageHeaderTitle = 'Blog posts filed under “' + tag + '”' %}
 {% endif %}
 
+
+{% block gridMod %}blog static{% endblock %}
 {% block content %}
-  <article>
-    {% include "partials/page-header.html" %}
-    {% include "partials/post-list.html" %}
 
-    {# If we leave pagination in for tags, the next and prev links will
+{#    {% include "partials/page-header.html" %}#}
+    {%  include "partials/hero.html" %}
+
+    <main class="blog__body main">
+      {% include "partials/post-list.html" %}
+
+      {% if not tag %}
+        {% include "partials/pagination.html" %}
+      {% endif %}
+      {# If we leave pagination in for tags, the next and prev links will
       link to tags and be rather confusing, so don't render in that situation #}
-    {% if not tag %}
-      {% include "partials/pagination.html" %}
-    {% endif %}
-  </article>
 
-  {% include "partials/cta.html" %}
+    </main>
+
+
+
+{#  {% include "partials/cta.html" %}#}
 {% endblock %}

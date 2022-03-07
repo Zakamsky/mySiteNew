@@ -44,11 +44,12 @@ padding: $default-spacing;
 
 .nav {
   display: none;
+  list-style: none;
   padding-top: 2.5rem;
   overflow-y: auto;
   @supports (-webkit-overflow-scrolling: touch) {
-  -webkit-overflow-scrolling: touch;
-}
+    -webkit-overflow-scrolling: touch;
+  }
 
   &__item:not(:last-child)::after {
     content: '';

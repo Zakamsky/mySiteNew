@@ -1,7 +1,6 @@
 $hero-height: auto; //500px
 
-.grid-wrap__base.contacts,
-.grid-wrap__base.resume {
+.grid-wrap__base.static {
   display: block;
   overflow-y: auto;
   @media screen and (min-width: 1024px) {
@@ -118,4 +117,48 @@ $hero-height: auto; //500px
   &:last-child {
     margin-bottom: 3em;
 }
+}
+
+.page-nav ul{
+  list-style: none;
+  padding-left: 0;
+
+  & > li > ul {
+    padding-left: 1em;
+
+    & > li {
+      &:not(:last-child)::after {
+        content: none;
+        display: none;
+      }
+      & > a::before {
+        content: '- '
+      }
+    }
+  }
+
+  & > li:not(:last-child)::after {
+    content: '';
+    display: block;
+    width: 110%;
+    height: 2px;
+    background: linear-gradient(to right, $color-primary-3-shadow 30%, rgba($color-primary-3, 0.06), transparent);
+  }
+
+  & > li > a {
+    display: block;
+    padding: .5em 1em;
+    text-decoration: none;
+
+    &.is-active,
+    &:hover,
+    &:focus {
+      outline: none !important;
+      background: linear-gradient(to right, $color-primary-3-shadow 50%, rgba($color-primary-3, 0.06), transparent);
+    }
+
+    @include media(md) {
+      padding: 1em 2em;
+    }
+  }
 }
