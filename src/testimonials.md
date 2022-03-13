@@ -2,6 +2,9 @@
 title: 'Отзывы'
 metaDesc: 'personal web site for Alex Elkin frontend web developer'
 layout: 'layouts/testimonials.html'
+eleventyNavigation:
+    key: Отзывы
+    order: 2
 ---
 
 На этой странице я решил собрать отзывы от моих клиентов, студентов и коллег

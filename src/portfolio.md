@@ -2,7 +2,9 @@
 title: 'Портфолио'
 layout: 'layouts/portfolio.html'
 verticalArrow: true
+eleventyNavigation:
+    key: Портфолио
+    order: 1
 ---
 
-Some of our finest work from websites right through to printed
-branding that shows our range and diversity of talent in the agency.
+На этой странице вы можете ознакомиться с примерами моих работ

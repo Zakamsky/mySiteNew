@@ -3,6 +3,8 @@ const rssPlugin = require('@11ty/eleventy-plugin-rss');
 const pluginTOC = require('eleventy-plugin-toc')
 const markdownIt = require('markdown-it')
 const markdownItAnchor = require('markdown-it-anchor')
+const eleventyNavigationPlugin = require("@11ty/eleventy-navigation");
+
 
 
 
@@ -38,6 +40,7 @@ module.exports = config => {
     }
 
     // Plugins
+    config.addPlugin(eleventyNavigationPlugin);
     config.addPlugin(rssPlugin);
     config.addPlugin(pluginTOC, {
         tags: ['h2', 'h3'],

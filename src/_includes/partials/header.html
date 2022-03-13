@@ -1,5 +1,22 @@
 {#<a class="[ skip-link ] [ button ]" href="#main-content">Skip to content</a>#}
 
+
+{% set navPages = collections.all | eleventyNavigation %}
+{% macro renderNavListItem(entry) -%}
+    <li class="menu-list__item {% if entry.url == page.url %} menu-list__item--active{% endif %}" >
+        <a href="{{ entry.url | url }}" {% if entry.url == page.url %}aria-current="page"{% endif %}>
+            {{ entry.title }}
+        </a>
+        {%- if entry.children.length -%}
+            <ul class="list-unstyled">
+                {%- for child in entry.children %}{{ renderNavListItem(child) }}{% endfor -%}
+            </ul>
+        {%- endif -%}
+    </li>
+{%- endmacro %}
+
+
+
 <header class="header">
     <nav class="navigation-menu js-nav-menu">
         <button class="navigation-menu__toggle js-nav-menu-toggle">
@@ -7,11 +24,7 @@
             Меню
         </button>
         <ul class="menu-list list-unstyled">
-            <li class="menu-list__item"><a href="/">Главная</a></li>
-            <li class="menu-list__item"><a href="/portfolio">Портфолио</a></li>
-            <li class="menu-list__item"><a href="/testimonials">Отзывы</a></li>
-            <li class="menu-list__item"><a href="/contacts">Контакты</a></li>
-            <li class="menu-list__item"><a href="https://resume.elkin.dev/ru-ru/" target="_blank">Моё резюме</a></li>
+            {%- for entry in navPages %}{{ renderNavListItem(entry) }}{%- endfor -%}
         </ul>
     </nav>
 

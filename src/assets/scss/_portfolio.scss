@@ -16,28 +16,28 @@
   overflow-y: auto;
   perspective: 1px;
   @supports (scroll-snap-type: block proximity) {
-  scroll-snap-type: block proximity;
-  /* текущая спецификация / Safari */
-};
-;
-//noinspection CssInvalidFunction
-@supports (scroll-snap-destination: 0% 100%) {
-scroll-snap-destination: 0% 100%;
-scroll-snap-points-Y: repeat(100%);
-};
-//  /* старая спецификация / Firefox */;
-@supports (-webkit-overflow-scrolling: touch) {
--webkit-overflow-scrolling: touch;
-}
-@supports (-moz-overflow-scrolling: touch) {
--moz-overflow-scrolling: touch;
-}
+    scroll-snap-type: block proximity;
+    /* текущая спецификация / Safari */
+  };
+  ;
+  //noinspection CssInvalidFunction
+  @supports (scroll-snap-destination: 0% 100%) {
+  scroll-snap-destination: 0% 100%;
+  scroll-snap-points-Y: repeat(100%);
+  };
+  //  /* старая спецификация / Firefox */;
+  @supports (-webkit-overflow-scrolling: touch) {
+  -webkit-overflow-scrolling: touch;
+  }
+  @supports (-moz-overflow-scrolling: touch) {
+  -moz-overflow-scrolling: touch;
+  }
 
 
-@media screen and (min-width: 1024px) {
-grid-column: 2 / -1;
-padding: $default-spacing;
-}
+  @media screen and (min-width: 1024px) {
+  grid-column: 2 / -1;
+  padding: $default-spacing;
+  }
 }
 
 // ============== NAVIGATION ================//
@@ -128,6 +128,12 @@ padding: $default-spacing;
 
 
 // ============= PAGE SECTIONS ==============
+
+.portfolio {
+  &__content {
+    padding-bottom: 2rem;
+  }
+}
 
 .section {
   min-height: 100vh;
@@ -232,12 +238,27 @@ padding: $default-spacing;
     &--high {
       grid-row: span 2;
     }
+    &--large {
+      grid-column: span 2;
+      grid-row: span 2;
+    }
     &--push {
       @media screen and (min-width: 1024px) {
         grid-column: span 2;
         padding-left: 50%;
       }
     }
+    &--picture {
+      grid-column: span 2;
+      grid-row: span 2;
+
+      .box__img {
+        padding: 0;
+        object-fit: cover;
+        object-position: top;
+      }
+    }
+
   }
 }
 
@@ -274,9 +295,12 @@ padding: $default-spacing;
     background-color: rgba($color-primary-dark, 0.86);
   }
   &--description {
+    display: block;
+    order: -1;
+    text-decoration: none;
     background-color: rgba($color-gray-1, 0.86);
-    p + p {
-      margin: 1rem 0 0;
+    p {
+      margin-top: 0;
     }
   }
   &--image,

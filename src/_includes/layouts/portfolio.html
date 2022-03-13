@@ -5,202 +5,34 @@
 
     <aside class="nav nav--rotate">
         <ul class="nav__menu">
-            <li class="nav__item">
-                <a href="#bow59" class="nav__link" data-scroll-to>
-                    <div class="media">
-                        <img src="{{ '/images/work/logo_bow.jpg' | url }}" alt="" class="media__img">
-                        <p class="media__content">
-                            <span class="media__content--title">bow59.ru</span><br/>
-                            3D archery club
-                        </p>
-                    </div>
-                </a>
-            </li>
-            <li class="nav__item">
-                <a href="#ottempo" class="nav__link" data-scroll-to>
-                    <div class="media">
-                        <img src="{{ '/images/work/logo_ott.jpg' | url }}" alt="" class="media__img">
-                        <p class="media__content">
-                            <span class="media__content--title">Ordo temple</span><br/>
-                            Game orden
-                        </p>
-                    </div>
-                </a>
-            </li>
-            <li class="nav__item">
-                <a href="#newprov" class="nav__link" data-scroll-to>
-                    <div class="media">
-                        <img src="{{ '/images/work/logo_new.jpg' | url }}" alt="" class="media__img">
-                        <p class="media__content">
-                            <span class="media__content--title">New Providence</span><br/>
-                            Local news page
-                        </p>
-                    </div>
-                </a>
-            </li>
+            {% for work in collections.work %}
+                <li class="nav__item">
+                    <a href="#{{ work.data.id | slug  }}" class="nav__link" data-scroll-to>
+                        <div class="media">
+                            <img src="{{ work.data.logo | url }}" alt="" class="media__img">
+                            <p class="media__content">
+                                <span class="media__content--title">{{ work.data.title }}</span><br/>
+                                {{ work.data.subtitle }}
+                            </p>
+                        </div>
+                    </a>
+                </li>
+            {% endfor %}
         </ul>
     </aside>
 
     <main class="main">
+        <div class="portfolio__content">
 
-        <article class="section" id="bow59" data-section>
-            <header class="section__header" style="background-image: url('/images/work/bow_bg_upper.png'), url('/images/work/bow_bg_under.jpg');">
-                <h2 class="section__title"><a href="https://bow59.ru" target="_blank" rel="noopener" >Bow59.ru</a></h2>
-                <p class="section__subtitle">3d archery sport club</p>
-            </header>
-            <div class="section__content">
-                <ul class="boxgrid">
-                    <li class="boxgrid__item boxgrid__item--wide">
-                        <a href="#" class="box box--image">
-                            <img src="{{ '/images/work/laptop_bow.png' | url }}" class="box__img item" alt="" />
-                        </a>
-                    </li>
-                    <li class="boxgrid__item">
-                        <a href="#" class="box box--image">
-                            <img src="{{ '/images/work/phone_bow.png' | url }}" class="box__img" alt="" />
-                        </a>
-                    </li>
-                    <!--<li class="boxgrid__item boxgrid__item&#45;&#45;push">-->
-                    <!--<a href="#" class="box box&#45;&#45;text">-->
-                    <!--<p><span class="text&#45;&#45;large">1.366</span><br />Locations</p>-->
-                    <!--</a>-->
-                    <!--</li>-->
-                    <li class="boxgrid__item">
-                        <a href="#" class="box box--image">
-                            <img src="{{ '/images/work/adaptiv_bow.jpg' | url }}" class="box__img picture" alt="" />
-                        </a>
-                    </li>
-                    <li class="boxgrid__item">
-                        <a href="#" class="box box--image">
-                            <img src="{{ '/images/work/phone_sm_bow.png' | url }}" class="box__img" alt="" />
-                        </a>
-                    </li>
-                    <li class="boxgrid__item boxgrid__item--high">
-                        <a href="#" class="box box--image">
-                            <img src="{{ '/images/work/tablet_bow.png' | url }}" class="box__img" alt="" />
-                        </a>
-                    </li>
-                    <li class="boxgrid__item boxgrid__item--wide">
-                        <a href="#" class="box box--image">
-                            <img src="{{ '/images/work/tablet_horizontal_bow.png' | url }}" class="box__img" alt="" />
-                        </a>
-                    </li>
-                    <!--<li class="boxgrid__item boxgrid__item&#45;&#45;wide boxgrid__item&#45;&#45;high">
-                        <a href="#" class="box box&#45;&#45;description">
-                            <p><span class="text&#45;&#45;large">272</span><br />Locations</p>
-                        </a>
-                    </li>
-                    <li class="boxgrid__item">
-                        <a href="#" class="box box&#45;&#45;cost">
-                            <p><span class="text&#45;&#45;large">80€</span><br />Daily cost</p>
-                        </a>
-                    </li>-->
+            <h1>{{ title }}</h1>
 
-                </ul>
-            </div>
-        </article>
-        <article class="section" id="ottempo" data-section>
-            <header class="section__header" style="background-image: url('/images/work/ott_bg_upper.png'), url('/images/work/ott_bg_under.jpg');">
-                <h2 class="section__title"><a href="http://alex.w2c.ru/orden" target="_blank" rel="noopener" >Ordo Temple</a></h2>
-                <p class="section__subtitle">Game orden</p>
-            </header>
-            <div class="section__content">
-                <ul class="boxgrid">
-                    <li class="boxgrid__item boxgrid__item--wide">
-                        <a href="#" class="box box--image">
-                            <img src="/images/work/laptop_ott.png" class="box__img" alt="" />
-                        </a>
-                    </li>
-                    <!--<li class="boxgrid__item">
-                        <a href="#" class="box box&#45;&#45;weather">
-                            <p><span class="text&#45;&#45;large">30°C</span><br />Sunny</p>
-                        </a>
-                    </li>-->
-                    <li class="boxgrid__item boxgrid__item--push">
-                        <a href="#" class="box box--image">
-                            <img src="/images/work/phone_ott.png" class="box__img" alt="" />
-                        </a>
-                    </li>
-                    <li class="boxgrid__item ">
-                        <a href="#" class="box box--image">
-                            <img src="/images/work/adaptiv_ott.jpg" class="box__img picture" alt="" />
-                        </a>
-                    </li>
+            {{ content | safe }}
 
-                    <!--<li class="boxgrid__item">
-                        <a href="#" class="box box&#45;&#45;cost">
-                            <p><span class="text&#45;&#45;large">150$</span><br />Daily cost</p>
-                        </a>
-                    </li>-->
-                    <li class="boxgrid__item">
-                        <a href="#" class="box box--image">
-                            <img src="/images/work/phone_ott2.png" class="box__img" alt="" />
-                        </a>
-                    </li>
-                    <li class="boxgrid__item">
-                        <a href="#" class="box box--image">
-                            <img src="/images/work/tablet_horizontal_ott.png" class="box__img" alt="" />
-                        </a>
-                    </li>
-                    <li class="boxgrid__item">
-                        <a href="#" class="box box--image">
-                            <img src="/images/work/tablet_ott.png" class="box__img" alt="" />
-                        </a>
-                    </li>
-                </ul>
-            </div>
-        </article>
-        <article class="section" id="newprov" data-section>
-            <header class="section__header" style="background-image: url('/images/work/new_bg_upper.png'), url('/images/work/new_bg_under.jpg')">
-                <h2 class="section__title"><a href="http://alex.w2c.ru/test" target="_blank" rel="noopener" >New Providence</a></h2>
-                <p class="section__subtitle">Local news page</p>
-            </header>
-            <div class="section__content">
-                <ul class="boxgrid">
-                    <!--<li class="boxgrid__item">
-                        <a href="#" class="box box&#45;&#45;weather">
-                            <p><span class="text&#45;&#45;large">22°C</span><br />Rain</p>
-                        </a>
-                    </li>-->
-                    <li class="boxgrid__item boxgrid__item--wide">
-                        <a href="#" class="box box--image">
-                            <img src="/images/work/laptop_new.png" class="box__img" alt="" />
-                        </a>
-                    </li>
-                    <li class="boxgrid__item">
-                        <a href="#" class="box box--image">
-                            <img src="/images/work/phone_new.png" class="box__img" alt="" />
-                        </a>
-                    </li>
-                    <li class="boxgrid__item">
-                        <a href="#" class="box box--image">
-                            <img src="/images/work/adaptiv_new.jpg" class="box__img picture" alt="" />
-                        </a>
-                    </li>
-                    <!--<li class="boxgrid__item boxgrid__item&#45;&#45;push">
-                        <a href="#" class="box box&#45;&#45;locations">
-                            <p><span class="text&#45;&#45;large">272</span><br />Locations</p>
-                        </a>
-                    </li>-->
-                    <li class="boxgrid__item boxgrid__item">
-                        <a href="#" class="box box--image">
-                            <img src="/images/work/tablet_horizontal_new.png" class="box__img" alt="" />
-                        </a>
-                    </li>
-                    <!--<li class="boxgrid__item">
-                        <a href="#" class="box box&#45;&#45;cost">
-                            <p><span class="text&#45;&#45;large">80€</span><br />Daily cost</p>
-                        </a>
-                    </li>-->
-                    <li class="boxgrid__item boxgrid__item">
-                        <a href="#" class="box box--image">
-                            <img src="/images/work/tablet_new.png" class="box__img" alt="" />
-                        </a>
-                    </li>
+        </div>
 
-                </ul>
-            </div>
-        </article>
+        {% for item in collections.work %}
+            {% include "partials/_work-item.html" %}
+        {% endfor %}
 
     </main>
 
