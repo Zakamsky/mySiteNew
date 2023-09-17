@@ -22,5 +22,4 @@ sections:
 ---
 
 # Welcome to Alex Elkin's personal website!
-## MyBlog:
-[blog](./blog)
+Hello friends I'm a Front end developer and mentor
