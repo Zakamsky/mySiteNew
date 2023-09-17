@@ -5,7 +5,9 @@ summary: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. At debitis d
 url-origin: 'https://bow59.ru'
 logo: '/images/work/logo_bow.jpg'
 displayOrder: 1
-id: 'bow59'
+id: bow59
+featured: true
+permalink: false
 img:
   main: '/images/work/bow_bg_upper.png'
   background: '/images/work/bow_bg_under.jpg'
@@ -38,7 +40,7 @@ gallery:
     mod: 'wide'
     alt: ''
     text: ''
-featured: true
+
 tags:
   - gulp
   - scss
