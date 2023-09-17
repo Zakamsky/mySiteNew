@@ -5,369 +5,55 @@
 
     {%  include "partials/hero.html" %}
 
-    {#    todo: add generating navigations: https://css-tricks.com/parsing-markdown-into-an-automated-table-of-contents/ #}
-    {#    todo: OR https://plug11ty.com/plugins/table-of-contents/#default-options#}
-
     <aside class="nav">
         <ul class="nav__menu">
             <li class="nav__item">
-                <a href="#gen_info" class="nav__link" data-scroll-to>
+                <a href="#md-intro" class="nav__link" data-scroll-to>
                     <p class="nav_text">
-                        Общие сведения
+                        intro
                     </p>
                 </a>
             </li>
-            <li class="nav__item">
-                <a href="#stack" class="nav__link" data-scroll-to>
-                    <p class="nav_text">
-                        технологический стэк
-                    </p>
-                </a>
-            </li>
-            <li class="nav__item">
-                <a href="#hobby" class="nav__link" data-scroll-to>
-                    <p class="nav_text">
-                        Мои увлечения
-                    </p>
-                </a>
-            </li>
-            <li class="nav__item">
-                <a href="#exp_work" class="nav__link" data-scroll-to>
-                    <p class="nav_text">
-                        Опыт работы
-                    </p>
-                </a>
-            </li>
-            <li class="nav__item">
-                <a href="#etcetera" class="nav__link" data-scroll-to>
-                    <p class="nav_text">
-                        Дополнительная информация
-                    </p>
-                </a>
-            </li>
+            {% for section in sections %}
+                <li class="nav__item">
+                    <a href="#{{ section.title | slug }}" class="nav__link" data-scroll-to>
+                        <p class="nav_text">
+                            {{ section.title }}
+                        </p>
+                    </a>
+                </li>
+            {% endfor %}
 
         </ul>
     </aside>
 
     <main class="resume__body main" tabindex="-1" id="main-content">
 
-        <section class="resume-block" id="gen_info" data-section>
-
-            {{ content | safe }}
-
-            <h2 class="resume-block__title">
-                Общие сведения
-            </h2>
+        <section class="resume-block" id="md-intro" data-section>
+            <p class="accent-text text--large code">&lt; HelloWorld /&gt;</p>
             <div class="resume-block__content">
-                <p class="resume-block__text">
-                    Ищу удаленную работу на полную занятость, с возможностью
-                    развиваться и расти как специалист.
-                </p>
-                <p class="resume-block__text">
-                    Имею опыт удаленной работы, работы в команде,
-                    самостоятельной разработки, серверной разработки (Backend),
-                    Разработки клиентской части (Frontend), и разработки полного
-                    цикла (Fullstack).
-                </p>
-                <p class="resume-block__text">
-                    Для меня очень важно профессиональное развитие, я бы хотел
-                    оказаться в команде, в которой будет у кого учиться, перенимать
-                    лучшие практики, обращаться за советом, и при этом можно
-                    будет предлагать собственные решения, проявлять инициативу
-                    и принимать активное участие в рабочем процессе.
-                </p>
-                <p class="resume-block__text">
-                    Знаю что можно достичь настоящего мастерства только
-                    в одном направлении, поэтому выбрал фронтенд, но для
-                    широты кругозора и исполнения текущих задач немного изучил
-                    серверные технологии.
-                </p>
-                <p class="resume-block__text">
-                    Мне интересно работать над новыми, интересными задачами,
-                    но я не избегаю рутинных, постоянных задач. Изучаю и
-                    стараюсь применять новые технологии, не сторонюсь старых.
-                </p>
-                <p class="resume-block__text">
-                    Непрофильный опыт который может быть полезным для работы:
-                    опыт руководства небольшой группы подчиненных.
-                    Опыт обучения и наставничества
-                </p>
-
+                {{ content | safe }}
             </div>
         </section>
-        <section class="resume-block" id="stack" data-section>
 
-            <h2 class="resume-block__title">
-                Мой технологический стэк
-            </h2>
-            <div class="resume-block__content">
-                <p class="resume-block__text">
-                    Клиентские технологии (Frontend):
-                <ul class="text_list">
-                    <li class="text_list__item">
-                        HTML-5, CSS-3, Валидно, Семантично, современные раскладки -
-                        Grid, Flexbox, CSS анимации.
-                    </li>
-                    <li class="text_list__item">
-                        Bootstrap-4(3), Foundation-6. Могу пересобрать фрэймворки с
-                        изменением базовых установок.
-                    </li>
-                    <li class="text_list__item">
-                        JS, Jquery, Vue.js. Манипуляции с DOM, обработка событий.
-                    </li>
-                    <li class="text_list__item">
-                        Верстка E-mail: Foundation-for-Email, знание особенностей email
-                        клиентов.
-                    </li>
+        {% for section in sections %}
+            <section class="resume-block" id="{{ section.title | slug }}" data-section>
+                <h2 class="resume-block__title">
+                    {{ section.title }}
+                </h2>
+                <div class="resume-block__content">
+                    {{ section.description }}
+                </div>
+                <p>collections.blog</p>
+                <p>{{section.collection}}</p>
+                <ul>
+                    {% for item in collections[section.collection] %}
+                        {% include "partials/" + section.partial + ".html" %}
+
+                    {% endfor %}
                 </ul>
-
-                </p>
-                <p class="resume-block__text">
-                    Серверные технологии (Backend):
-                <ul class="text_list">
-                    <li class="text_list__item">
-                        PHP, OOP, MVC.
-                    </li>
-                    <li class="text_list__item">
-                        MySQL
-                    </li>
-                    <li class="text_list__item">
-                        Codigniter, SMARTY.
-                    </li>
-                    <li class="text_list__item">
-                        CMS WordPress, PrestaShop.
-                    </li>
-                </ul>
-                </p>
-                <p class="resume-block__text">
-                    Инструменты сборки и контроля версий:
-                <ul class="text_list">
-                    <li class="text_list__item">Npm</li>
-                    <li class="text_list__item">Sass, SCSS, Less</li>
-                    <li class="text_list__item">Gulp, Panini</li>
-                    <li class="text_list__item">Webpack</li>
-                    <li class="text_list__item">Git, Github</li>
-                </ul>
-                </p>
-                <p class="resume-block__text">
-                    Изучал основы поисковой оптимизации (SEO) и оптимизации
-                    интерфейса для пользовательского взаимодействия (UI/UX).
-                </p>
-                <p class="resume-block__text">
-                    По мере необходимости изучаю новые инструменты и
-                    технологии. В данный момент углубляюсь в JS (ES6+) и JS
-                    фреймворки.
-                </p>
-
-
-            </div>
-        </section>
-        <section class="resume-block" id="hobby" data-section>
-            <h2 class="resume-block__title">
-                Хобби
-            </h2>
-            <div class="resume-block__content">
-
-                <p class="resume-block__text">
-                    Мои увлечения помогают мне развиваться:
-                </p>
-                <p class="resume-block__text">
-                    Стрельба из лука улучшает выдержку и концентрацию.
-                </p>
-                <p class="resume-block__text">
-                    Бег насыщает кровью мозг и выравнивает кровообращение
-                    после неподвижной работы.
-                </p>
-                <p class="resume-block__text">
-                    Подкасты позволяют оставаться на волне последних новостей
-                    мира веб-разработки, удобно слушать их во время пробежек.
-                </p>
-                <p class="resume-block__text">
-                    Хайкинг и велопрогулки помогают отдохнуть и снять стресс в
-                    конце рабочей недели.
-                </p>
-                <p class="resume-block__text">
-                    Настольные игры развивают аналитическое мышление и
-                    коммуникативные навыки.
-                </p>
-
-            </div>
-        </section>
-        <section class="resume-block" id="exp_work" data-section>
-            <h2 class="resume-block__title">
-                Опыт работы
-            </h2>
-
-            <div class="resume-block__content">
-                <h3 class="resume-block__subtitle">
-                    PrestaWeb
-                </h3>
-                <p class="resume-block__accent-text">
-                    Front end developer
-                </p>
-                <p class="resume-block__text">
-                    май 2019 - по настоящее время
-                </p>
-                <p class="resume-block__text">
-                    Екатеринбург
-                </p>
-                <p class="resume-block__text">
-                    Обязанности:
-                </p>
-
-                <p class="resume-block__text">
-                    Удаленная работа.
-                    Frontend разработка, приемка верстки от верстальщика, интеграция
-                    с backend api и CMS PrestaShop. Поддержка старых проектов
-                    чужой разработки (легаси код), работа с логированием времени,
-                    телесовещания, работа в команде.
-
-
-                </p>
-                <p class="resume-block__text">
-                    Достижения:
-                </p>
-                <p class="resume-block__text">
-                    Вывел в продакшен раскладку на CSS Grid используя фолбэки на Flexbox
-                    для поддержки старых браузеров.
-                    Подправил юзабилити корпоративной вики, улучшил читаемость
-                    благодаря типографике.
-                </p>
-
-                <h3 class="resume-block__subtitle">
-                    Фриланс, самозанятый
-                </h3>
-                <p class="resume-block__accent-text">
-                    Веб-разработчик полного цикла
-                </p>
-                <p class="resume-block__text">
-                    сентябрь 2017 - май 2019 (1 год 9 месяцев)
-                </p>
-                <p class="resume-block__text">
-                    Обязанности:
-                </p>
-                <p class="resume-block__text">
-                    Поиск заказов, общение с заказчиком и объяснение технических нюансов
-                    на доступном ему языке, дизайн и разработка сайтов. Чаще всего задачи
-                    Fullstack (полный цикл разработки), иногда отдельно Frontend (разработка
-                    клиентской части) или Backend (серверная часть). Посадка на cms
-                    WordPress, Prestashop и интеграция с разными сервисами. Оптимизация
-                    скорости загрузки страниц по GooglePageSpeed.
-
-
-                </p>
-                <p class="resume-block__text">
-                    Достижения:
-                </p>
-                <p class="resume-block__text">
-                    Собрал систему из миксинов (SCSS mixin) и NPM пакета для
-                    медиазапросов, что бы комфортно писать CSS в MobileFirst стиле, даже
-                    если сначала приходится разрабатывать Desktop (настольную) версию.
-                    Собственный CSS mixin для фрэймворка Bootstrap 4 для имитации
-                    вложенного контейнера с одной или двух сторон блока.
-                    Блок стилей для фрэймворка Foundation 6 с возможностью на лету
-                    (уже в браузере, в собранном проекте) изменить основную цветовую
-                    схему фрэймворка, через CSS custom property (кастомные свойства, или
-                    «переменные» CSS).
-                </p>
-                <h3 class="resume-block__subtitle">
-                    "Вольные стрелки" <span class="thin-text">КСиЛ</span>
-                </h3>
-                <p class="resume-block__accent-text">
-                    Веб-мастер <span class="thin-text">(на полставки)</span>
-                </p>
-                <p class="resume-block__text">
-                    ноябрь 2016 - сентябрь 2017 (11 месяцев)
-                </p>
-                <p class="resume-block__text">
-                    Пермь
-                </p>
-                <p class="resume-block__text">
-                    Обязанности:
-                </p>
-                <p class="resume-block__text">
-                    Добровольно взял на себя обязанности ведения всей цифровой
-                    инфраструктуры клуба, выполнял все функции связанные с сайтом
-                    клуба: дизайн, разработка, сопровождение, сео, контент. Был серьезно
-                    заинтересован и решил сменить сферу своей профессиональной
-                    деятельности.
-                    Перевел сайт с конструктора на нормальные web технологии – PHP,
-                    HTML, CSS, JS.
-                    Произвел полный редизайн сайта, аналитика посещений, UI/UX и SEO
-                    оптимизация.
-                </p>
-                <p class="resume-block__text">
-                    Достижения:
-
-                </p>
-                <p class="resume-block__text">
-                    Создал разметку сайта, которая принимает фото без лишних
-                    манипуляций с фоторедакторами и уже при выводе накладывает
-                    эффекты заполнения цветом, растворения в фоне и облака, что бы
-                    менеджерам можно было быстро и без дополнительных знаний менять
-                    изображения на сайте.
-                </p>
-
-
-            </div>
-        </section>
-        <section class="resume-block" id="etcetera" data-section>
-            <h2 class="resume-block__title">
-                Дополнительная информация
-            </h2>
-            <div class="resume-block__content">
-                <h3 class="resume-block__subtitle">Портфолио</h3>
-                <p class="resume-block__text">
-                    В разделе <a href="/portfolio.html" class="accent-text">портфолио</a> этого сайта подробно представлены примеры моих работ, со скриншотами и ссылками.
-                </p>
-
-                <h3 class="resume-block__subtitle">Языки</h3>
-                <p class="resume-block__text">
-                    Английский - Базовый (А2)
-                </p>
-                <p class="resume-block__text">
-                    Испанский - Базовый (А2)
-                </p>
-                <p class="resume-block__text">
-                    Русский - Родной
-                </p>
-
-                <h3 class="resume-block__subtitle">Контакты</h3>
-                <p class="resume-block__text">
-                    <a href="tel:+34698999059" class="accent-text">+34 698 999 059</a> мобильный, Испания (также доступен в мессенджерах по этому номеру)
-                </p>
-                <p class="resume-block__text">
-                    <a href="mailto:alexei.v.elkin@gmail.com" class="accent-text">alexei.v.elkin@gmail.com</a>
-                </p>
-                <p class="resume-block__text">
-                    Больше способов связи в разделе <a href="/contacts.html" class="accent-text">Контакты</a>
-                </p>
-
-                <h3 class="resume-block__subtitle">Аккаунты в сети</h3>
-                <p class="resume-block__text accent-text">
-                    <a href="https://github.com/Zakamsky" class="accent-text">Github</a>
-                </p>
-                <p class="resume-block__text accent-text">
-                    <a href="https://www.linkedin.com/in/alexelkin/" class="accent-text">LinkedIn</a>
-                </p>
-                <p class="resume-block__text accent-text">
-                    <a href="https://career.habr.com/alexsei-elkin" class="accent-text">Habr:Career</a>
-                </p>
-                <p class="resume-block__text accent-text">
-                    <a href="https://hh.ru/resume/6a755e4eff079b54c60039ed1f784e4d576957" class="accent-text">HeadHunter</a>
-                </p>
-
-                <p class="resume-block__text">
-                    Подробнее в разделе <a href="/contacts.html" class="accent-text">Контакты</a>
-                </p>
-
-                <p class="resume-block__text accent-text">
-                    Я гражданин РФ и в данный момент нахожусь в Испании, г. Валенсия. Доступен только по местному номеру телефона или любым мессенджерам.
-                </p>
-
-            </div>
-        </section>
-
+            </section>
+        {% endfor %}
     </main>
 
 {% endblock %}

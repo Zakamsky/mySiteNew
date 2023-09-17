@@ -4,11 +4,23 @@ metaDesc: 'personal web site for Alex Elkin frontend web developer'
 layout: home
 verticalArrow: true
 eleventyNavigation:
-    key: Главная
+    key: Home
     order: -1
+sections:
+  - title: My litle blog
+    description: here will be text description of the section
+    collection: blog
+    partial: post-card
+    seeAllText: to blog page
+    seeAllLink: blog
+  - title: My works
+    description: here will be text description of the section
+    collection: work
+    partial: work-card
+    seeAllText: see all
+    seeAllLink: portfolio
 ---
 
-
-## ВНИМАНИЕ!
-> информация ниже вероятнее всего не актуальна
-> более актуальное резюме по адерсу [resume.elkin.dev](https://resume.elkin.dev/ru-ru/)
+# Welcome to Alex Elkin's personal website!
+## MyBlog:
+[blog](./blog)

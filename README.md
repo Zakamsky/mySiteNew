@@ -19,8 +19,9 @@
 - [x] <s>add work collections </s>
 - [x] <s>add automatic generated table of contents https://plug11ty.com/plugins/table-of-contents/#default-options and ↓</s>
 - [x] <s>add automatic indication of reading part on the table of content with intersection observer https://css-tricks.com/parsing-markdown-into-an-automated-table-of-contents/ </s>
-- [x] <s>add testimonials page https://utteranc.es/ </s> 
+- [x] <s>add testimonials page https://utteranc.es/ </s>
 
 ### bugs:
 
-- [ ] scroll with PgDn/PgUp
+- [ ] rare scroll for anchor (replace with native scroll and css smooth scroll?)
+- [ ] scroll with PgDn/PgUp (if focus is outside a scrolling section)
