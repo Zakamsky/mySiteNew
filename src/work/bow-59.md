@@ -2,7 +2,7 @@
 title: 'Bow59.ru'
 subtitle: '3d archery sport club'
 summary: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. At debitis distinctio doloribus harum impedit modi quisquam rerum sit tempora vero.'
-url-origin: 'https://bow59.ru'
+urlOrigin: 'http://alex.w2c.ru/'
 logo: '/images/work/logo_bow.jpg'
 displayOrder: 1
 id: bow59

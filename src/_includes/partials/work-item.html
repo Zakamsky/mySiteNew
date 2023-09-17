@@ -1,7 +1,7 @@
 {% set work = item.data %}
 <article class="section" id="{{ work.id }}" data-section>
   <header class="section__header" style="background-image: url({{ work.img.main }}), url({{ work.img.background }});">
-    <h2 class="section__title"><a href="{{ work.url-origin }}" target="_blank" rel="noopener" >{{ work.title }}</a></h2>
+    <h2 class="section__title"><a href="{{ work.urlOrigin }}" target="_blank" rel="noopener" >{{ work.title }}</a></h2>
     <p class="section__subtitle">{{ work.subtitle }}</p>
   </header>
 
