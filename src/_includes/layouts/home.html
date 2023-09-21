@@ -41,12 +41,10 @@
                 <h2 class="resume-block__title">
                     {{ section.title }}
                 </h2>
-                <div class="resume-block__content">
+                <p class="resume-block__content">
                     {{ section.description }}
-                </div>
-                <p>collections.blog</p>
-                <p>{{section.collection}}</p>
-                <ul>
+                </p>
+                <ul class="boxgrid">
                     {% for item in collections[section.collection] %}
                         {% include "partials/" + section.partial + ".html" %}
 
