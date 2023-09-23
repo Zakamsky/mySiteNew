@@ -8,6 +8,7 @@
 
 - [ ] add styles & properly markup for blog and posts pages
 - [ ] update to 11ty current version
+- [ ] add comments for posts with utteranc.es
 - [ ] content with logic for dynamic pages
 - [ ] add image plugin
 - [ ] add lightbox gallery
