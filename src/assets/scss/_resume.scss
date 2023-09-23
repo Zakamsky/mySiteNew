@@ -140,7 +140,7 @@ $hero-height: auto; //500px
   & > li:not(:last-child)::after {
     content: '';
     display: block;
-    width: 110%;
+    width: 100%;
     height: 2px;
     background: linear-gradient(to right, $color-primary-3-shadow 30%, rgba($color-primary-3, 0.06), transparent);
   }
