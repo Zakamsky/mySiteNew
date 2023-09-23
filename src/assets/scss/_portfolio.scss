@@ -220,6 +220,10 @@
   grid-gap: 1rem 0.5rem;
   padding: 0;
 
+  &--auto-fill {
+    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+  }
+
   &__item {
     display: flex;
     min-width: 150px;
@@ -350,6 +354,14 @@
       object-fit: cover;
       object-position: top;
     }
+  }
+
+  &__img-caption {
+    position: absolute;
+    left: .5em;
+    right: .5em;
+    bottom: .5em;
+    text-align: center;
   }
 }
 

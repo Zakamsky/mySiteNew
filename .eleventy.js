@@ -46,7 +46,7 @@ module.exports = config => {
         tags: ['h2', 'h3'],
         ul: true,
         wrapperClass: 'page-nav',
-        wrapperLabel: 'Оглавление страницы'
+        wrapperLabel: 'Table of content'
 
     })
 

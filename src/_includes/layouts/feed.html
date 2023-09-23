@@ -18,6 +18,9 @@
     {%  include "partials/hero.html" %}
 
     <main class="blog__body main">
+      {% if content %}
+        {{ content | safe }}
+      {% endif %}
       {% include "partials/post-list.html" %}
 
       {% if not tag %}

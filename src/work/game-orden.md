@@ -2,10 +2,12 @@
 title: 'Ordo Temple'
 subtitle: 'Game orden'
 summary: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. At debitis distinctio doloribus harum impedit modi quisquam rerum sit tempora vero.'
-url-origin: 'http://alex.w2c.ru/orden'
+urlOrigin: 'http://alex.w2c.ru/orden'
 logo: '/images/work/logo_ott.jpg'
 displayOrder: 2
 id: 'ottempo'
+featured: true
+permalink: false
 img:
   main: '/images/work/ott_bg_upper.png'
   background: '/images/work/ott_bg_under.jpg'
@@ -35,12 +37,10 @@ gallery:
     alt: ''
     text: ''
 
-
-featured: true
 tags:
-- gulp
-- scss
-- bootstrap
-- js
-- wordpress
+  - gulp
+  - scss
+  - bootstrap
+  - js
+  - wordpress
 ---

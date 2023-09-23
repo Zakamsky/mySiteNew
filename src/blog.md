@@ -1,5 +1,5 @@
 ---
-title: 'Статьи'
+title: 'Blog'
 layout: 'layouts/feed.html'
 pagination:
     data: collections.blog
@@ -8,7 +8,9 @@ permalink: 'blog{% if pagination.pageNumber > 0 %}/page/{{ pagination.pageNumber
 paginationPrevText: 'Newer posts'
 paginationNextText: 'Older posts'
 paginationAnchor: '#post-list'
+eleventyNavigation:
+    key: Blog
+    order: 2
 ---
 
-The latest articles from around the studio, demonstrating our design
-thinking, strategy and expertise.
+The latest articles, demonstrating my design thinking, strategy and expertise.

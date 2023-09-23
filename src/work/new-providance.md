@@ -2,10 +2,11 @@
 title: 'New Providence'
 subtitle: 'Local news page'
 summary: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. At debitis distinctio doloribus harum impedit modi quisquam rerum sit tempora vero.'
-url-origin: 'http://alex.w2c.ru/test'
+urlOrigin: 'http://alex.w2c.ru/test'
 logo: '/images/work/logo_new.jpg'
-id: 'newprov'
 displayOrder: 3
+id: 'newprov'
+permalink: false
 img:
   main: '/images/work/new_bg_upper.png'
   background: '/images/work/new_bg_under.jpg'
@@ -32,7 +33,7 @@ gallery:
     text: ''
 
 tags:
-- gulp
-- scss
-- bootstrap
+  - gulp
+  - scss
+  - bootstrap
 ---

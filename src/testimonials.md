@@ -1,14 +1,15 @@
 ---
-title: 'Отзывы'
+title: 'Testimonials'
 metaDesc: 'personal web site for Alex Elkin frontend web developer'
 layout: 'layouts/testimonials.html'
 eleventyNavigation:
-    key: Отзывы
+    key: Testimonials
     order: 2
 ---
 
-На этой странице я решил собрать отзывы от моих клиентов, студентов и коллег
+Testimonials
+On this page I decided to collect feedback from my colleagues, students and clients
 
-Буду рад если вы оставите свой отзыв о нашей с вами работе.
+I will be glad if you leave your feedback about our work.
 
-_(В теле отзывов работает маркдаун как в интерфейсе github, потому чтот это и есть часть его интерфейса)_
+_Markdown works in the body of the feedback as in the github interface, (because it is part of the github interface)._

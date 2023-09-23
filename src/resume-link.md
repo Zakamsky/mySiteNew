@@ -1,7 +1,7 @@
 ---
+permalink: false
 eleventyNavigation:
-    key: Моё резюме
+    key: My CV
     url: https://resume.elkin.dev/
-    permalink: false
     order: 9
 ---

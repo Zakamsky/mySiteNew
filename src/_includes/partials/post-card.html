@@ -1,0 +1,6 @@
+<li class="boxgrid__item boxgrid__item--wide">
+    <a href="{{ item.url }}" class="box box--description">
+        <h3>{{ item.data.title }}</h3>
+        <time datetime="{{ item.data.date | w3DateFilter }}">{{ item.data.date | dateFilter }}</time>
+    </a>
+</li>
