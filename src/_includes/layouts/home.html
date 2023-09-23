@@ -6,6 +6,7 @@
     {%  include "partials/hero.html" %}
 
     <aside class="nav">
+        <h2 class="nav_text"> on this page: </h2>
         <ul class="nav__menu">
             <li class="nav__item">
                 <a href="#md-intro" class="nav__link" data-scroll-to>
@@ -44,12 +45,13 @@
                 <p class="resume-block__content">
                     {{ section.description }}
                 </p>
-                <ul class="boxgrid">
+                <ul class="boxgrid boxgrid--auto-fill">
                     {% for item in collections[section.collection] %}
                         {% include "partials/" + section.partial + ".html" %}
 
                     {% endfor %}
                 </ul>
+                <a href="{{ section.seeAllLink | url }}" class="see-all">{{ section.seeAllText }}</a>
             </section>
         {% endfor %}
     </main>

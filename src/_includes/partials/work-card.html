@@ -1,6 +1,6 @@
 <li class="boxgrid__item">
     <a href="{{ "/portfolio#" + item.data.id | slug }}" class="box box--image">
-        work: {{ item.data.title }}
         <img src="{{ item.data.gallery[0].url }}" alt="{{ item.data.title }}" class="box__img item">
+        <span class="box__img-caption">{{ item.data.title }}</span>
     </a>
 </li>
